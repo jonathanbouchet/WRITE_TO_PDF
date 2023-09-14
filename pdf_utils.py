@@ -109,8 +109,6 @@ def write_to_pdf(blocks: list, uploaded_file, savePath) -> str:
     :return: location of file
     """
     print(f"input from user:{blocks}")
-    # pdf_reader = PdfReader("/Users/jonathanbouchet/Downloads/CMS-40B.pdf")
-
     pdf_reader = PdfReader(uploaded_file)
 
     dim_page_0 = pdf_reader.pages[1].mediabox
@@ -118,7 +116,6 @@ def write_to_pdf(blocks: list, uploaded_file, savePath) -> str:
     FONT_SIZE = 10
     FONT = "Arial.ttf"
 
-    # annotator = PdfAnnotator('/Users/jonathanbouchet/Downloads/CMS-40B.pdf')
     annotator = PdfAnnotator(savePath)
     base_template = base_form()
     prefilled = [x['field'] for x in base_template]
@@ -208,6 +205,3 @@ def write_to_pdf(blocks: list, uploaded_file, savePath) -> str:
     output_path = f"{output_dir}/filled_{output_name}"
     annotator.write(output_path)
     return output_path
-    #
-    # annotator.write('/Users/jonathanbouchet/Documents/LLM_PROJECT/LLM_TEST/OPENAI/STREAMLIT_SUMMARY_APP/experiments/test_CMS-40B.pdf')
-    # return '/Users/jonathanbouchet/Documents/LLM_PROJECT/LLM_TEST/OPENAI/STREAMLIT_SUMMARY_APP/experiments/test_CMS-40B.pdf'

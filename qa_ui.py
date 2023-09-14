@@ -31,7 +31,6 @@ if uploaded_file:
         st.success(f'File {uploaded_file.name} is successfully saved!')
 
 questions_list = ['medicare_number', 'signed_up_medicare', 'full_name', 'mailing_address', 'city', 'state', 'zipcode', 'phone_number']
-# questions_list = ['medicare_number', 'full_name', 'mailing_address', 'city', 'state', 'zipcode']
 
 if 'responses' not in st.session_state.keys():
     st.session_state.questions.extend(questions_list)
