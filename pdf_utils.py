@@ -6,8 +6,10 @@ from PIL import ImageFont
 import streamlit as st
 
 
-def data_submitted(qa_data: list,  uploaded_files, savePath):
+def data_submitted(qa_data: list, uploaded_files, savePath):
     """
+    :param savePath:
+    :param uploaded_files:
     :param qa_data:
     :return:
     """
@@ -105,6 +107,8 @@ def split_phone_number(phonenumber: str) -> list:
 def write_to_pdf(blocks: list, uploaded_file, savePath) -> str:
     """
     write template form with user data
+    :param savePath:
+    :param uploaded_file:
     :param blocks:
     :return: location of file
     """
@@ -113,8 +117,8 @@ def write_to_pdf(blocks: list, uploaded_file, savePath) -> str:
 
     dim_page_0 = pdf_reader.pages[1].mediabox
     offset = [37, 10]
-    FONT_SIZE = 10
-    FONT = "Arial.ttf"
+    FONT_SIZE: int = 10
+    FONT: str = "Arial.ttf"
 
     annotator = PdfAnnotator(savePath)
     base_template = base_form()
@@ -184,8 +188,8 @@ def write_to_pdf(blocks: list, uploaded_file, savePath) -> str:
                     text_size = get_pil_text_size("X", FONT_SIZE, FONT)
                     content = "X"
                 else:
-                   text_size = get_pil_text_size("", FONT_SIZE, FONT)
-                   content = ""
+                    text_size = get_pil_text_size("", FONT_SIZE, FONT)
+                    content = ""
             else:
                 text_size = get_pil_text_size(block['data'], FONT_SIZE, FONT)
                 content = block['data']

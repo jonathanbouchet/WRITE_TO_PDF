@@ -27,6 +27,6 @@ class Tags(BaseModel):
         :param v:
         :return:
         """
-        if not re.match(r"(\+\d{1,3})?\s?\(?\d{1,4}\)?[\s.-]?\d{3}[\s.-]?\d{4}", v):
+        if not re.match(r'^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$', v):
             raise ValueError("must be 10 digits")
         return v
