@@ -55,7 +55,7 @@ with st.container():
         message(response, is_user=True)
         message(question)
         st.session_state.counter_current_question = question
-        st.write(st.session_state)
+        # st.write(st.session_state)
 
 with st.container():
     res = st.text_input("User Response:", on_change=on_input_change, key="user_input")
